@@ -1,0 +1,65 @@
+[
+  {
+    "category": "дом",
+    "name": "табуретка",
+    "image": "products/product-1.jpg",
+    "price": 654,
+    "quantity": 65
+  },
+  {
+    "category": "дом",
+    "name": "стол",
+    "image": "products/product-2.jpg",
+    "price": 897,
+    "quantity": 12
+  },
+  {
+    "category": "офис",
+    "name": "офисный стол",
+    "image": "products/product-3.jpg",
+    "price": 568,
+    "quantity": "14"
+  },
+  {
+    "category": "классика",
+    "name": "класический диван",
+    "image": "products/product-4.jpg",
+    "price": 9875,
+    "quantity": 5
+  },
+  {
+    "category": "модерн",
+    "name": "кресло",
+    "image": "products/product-11.jpg",
+    "price": 589,
+    "quantity": 21
+  },
+  {
+    "category": "дом",
+    "name": "диван",
+    "image": "products/product-21.jpg",
+    "price": 9846,
+    "quantity": 6
+  },
+  {
+    "category": "офис",
+    "name": "офистный стул",
+    "image": "products/product-31.jpg",
+    "price": 652,
+    "quantity": 45
+  },
+  {
+    "category": "классика",
+    "name": "кровать",
+    "image": "products/product-41.jpg",
+    "price": 6578,
+    "quantity": 8
+  },
+  {
+    "category": "модерн",
+    "name": "тумбочка",
+    "image": "products/product-51.jpg",
+    "price": 657,
+    "quantity": 45
+  }
+]
