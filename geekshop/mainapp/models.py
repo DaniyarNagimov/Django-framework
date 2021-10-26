@@ -1,5 +1,6 @@
 from django.db import models
 
+<<<<<<< HEAD
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=64, unique=True, verbose_name='Название')
@@ -25,3 +26,6 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name} ({self.category.name})'
+=======
+# Create your models here.
+>>>>>>> 90ae9ea75642a8fad139b0e4e04c3ac457a35197
