@@ -1,17 +1,12 @@
 <ul class="links-menu">
-<<<<<<< HEAD
-    <li><a href="{% url 'products:products' %}">Все</a></li>
+    <li>
+        <a href="{% url 'products:category' 0 %}" {% if request.resolver_match.url_name == 'products' %} class="active" {% endif %}>все</a>
+    </li>
     {% for link_item in links_menu %}
-        <li><a
-                href="#"
-               {% if request.resolver_match.url_name == link_item.url %}class='active' {% endif %}>
-            {{ link_item.name }}</a></li>
-=======
-    {% for link_item in links_menu %}
-        <li><a
-                href="{% url link_item.url %}"
-               {% if request.resolver_match.url_name == link_item.url %}class='active' {% endif %}>
-            {{ link_item.title }}</a></li>
->>>>>>> 90ae9ea75642a8fad139b0e4e04c3ac457a35197
+        <li>
+            <a href="{% url 'products:category' link_item.pk %}" {% if request.resolver_match.kwargs.pk|add:'0' == link_item.pk %} class="active" {% endif %}>
+                {{ link_item.name }}
+            </a>
+        </li>
     {% endfor %}
 </ul>
