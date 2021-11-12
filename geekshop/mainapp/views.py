@@ -4,6 +4,7 @@ from django.shortcuts import render
 from mainapp.models import Product, ProductCategory
 from django.shortcuts import get_object_or_404
 from basketapp.models import Basket
+<<<<<<< HEAD
 
 
 def get_basket(user):
@@ -18,6 +19,8 @@ def get_hot_product():
 
 def get_same_product(hot_product):
     return Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk)[:3]
+=======
+>>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
 
 
 def index(request):
@@ -62,8 +65,13 @@ def products(request, pk=None):
 
         return render(request, 'mainapp/products_list.html', context=context)
 
+<<<<<<< HEAD
     hot_product = get_hot_product()
     same_products = get_same_product(hot_product)
+=======
+    hot_product = random.sample(list(Product.objects.all()), 1)[0]
+    same_products = Product.objects.all()[3:5]
+>>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
 
     context = {
         'title': title,
@@ -72,9 +80,11 @@ def products(request, pk=None):
         'hot_product': hot_product,
         'basket': get_basket(request.user)
     }
+
     return render(request, 'mainapp/products.html', context=context)
 
 
+<<<<<<< HEAD
 def product(request, pk):
     links_menu = ProductCategory.objects.all()
     context = {
@@ -83,3 +93,9 @@ def product(request, pk):
         'links_menu': links_menu
     }
     return render(request, 'mainapp/product.html', context)
+=======
+def get_basket(user):
+    if user.is_authenticated:
+        return sum(list(Basket.objects.filter(user=user).values_list('quantity', flat=True)))
+    return 0
+>>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
