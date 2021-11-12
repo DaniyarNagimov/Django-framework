@@ -1,7 +1,34 @@
-<li><a href="{% url 'main' %}" {% if request.resolver_match.url_name == 'main' %} class='active' {% endif %}>домой</a></li>
-<<<<<<< HEAD
-<li><a href="{% url 'products:products' %}" {% if 'products' in request.resolver_match.url_name %} class='active' {% endif %}>продукты</a></li>
-=======
-<li><a href="{% url 'products' %}" {% if 'products' in request.resolver_match.url_name %} class='active' {% endif %}>продукты</a></li>
->>>>>>> 90ae9ea75642a8fad139b0e4e04c3ac457a35197
-<li><a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %} class='active' {% endif %}>контакты</a></li>
+<li>
+    <a href="{% url 'main' %}" {% if request.resolver_match.url_name == 'main' %} class='active' {% endif %}>
+        домой
+    </a>
+</li>
+<li>
+    <a href="{% url 'products:products' %}" {% if request.resolver_match.namespace == 'products'%} class='active' {% endif %}>
+        продукты
+    </a>
+</li>
+<li>
+    <a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %} class='active' {% endif %}>
+            контакты
+    </a>
+</li>
+{% if user.is_authenticated %}
+    <li>
+        <a href="{% url 'auth:edit' %}">
+            {{ user.first_name|default:'Пользователь' }}
+        </a>
+        <a href="{% url 'auth:logout' %}">
+            выйти
+        </a>
+    </li>
+{% else %}
+    <li>
+        <a href="{% url 'auth:register' %}">
+            Регистраиция
+        </a>
+        <a href="{% url 'auth:login' %}">
+            войти
+        </a>
+    </li>
+{% endif %}
