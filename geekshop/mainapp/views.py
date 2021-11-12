@@ -1,98 +1,85 @@
+import random
+
 from django.shortcuts import render
-<<<<<<< HEAD
 from mainapp.models import Product, ProductCategory
-=======
->>>>>>> 90ae9ea75642a8fad139b0e4e04c3ac457a35197
+from django.shortcuts import get_object_or_404
+from basketapp.models import Basket
+
+
+def get_basket(user):
+    if user.is_authenticated:
+        return sum(list(Basket.objects.filter(user=user).values_list('quantity', flat=True)))
+    return 0
+
+
+def get_hot_product():
+    return random.sample(list(Product.objects.all()), 1)[0]
+
+
+def get_same_product(hot_product):
+    return Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk)[:3]
 
 
 def index(request):
     context = {
-<<<<<<< HEAD
         'title': 'Главная',
-        'products': Product.objects.all()[:4]
-=======
-        'title': 'Главная'
->>>>>>> 90ae9ea75642a8fad139b0e4e04c3ac457a35197
+        'products': Product.objects.all()[:4],
+        'basket': get_basket(request.user)
     }
     return render(request, 'mainapp/index.html', context=context)
 
 
 def contact(request):
     context = {
-        'title': 'Контакты'
+        'title': 'Контакты',
+        'basket': get_basket(request.user)
     }
     return render(request, 'mainapp/contact.html', context=context)
 
 
-<<<<<<< HEAD
 def products(request, pk=None):
+
+    title = 'продукты'
+    links_menu = ProductCategory.objects.all()
+
+    if pk is not None:
+        if pk == 0:
+            products_list = Product.objects.all().order_by('price')
+            category_item = {
+                'name': 'все'
+            }
+        else:
+            category_item = get_object_or_404(ProductCategory, pk=pk)
+            products_list = Product.objects.filter(category__pk=pk).order_by('price')
+
+        context = {
+            'links_menu': links_menu,
+            'title': title,
+            'category': category_item,
+            'products': products_list,
+            'basket': get_basket(request.user)
+        }
+
+        return render(request, 'mainapp/products_list.html', context=context)
+
+    hot_product = get_hot_product()
+    same_products = get_same_product(hot_product)
+
     context = {
-        'links_menu': ProductCategory.objects.all(),
-        'title': 'Подукты'
-    }
-    return render(request, 'mainapp/products.html', context=context)
-=======
-links_menu = [
-    {
-        'url': 'products',
-        'title': 'все'
-    },
-    {
-        'url': 'products_home',
-        'title': 'Дом'
-    },
-    {
-        'url': 'products_office',
-        'title': 'Офис'
-    },
-    {
-        'url': 'products_modern',
-        'title': 'Модерн'
-    },
-    {
-        'url': 'products_classic',
-        'title': 'Класска'
-    },
-
-]
-
-
-def products(request):
-    context = {
+        'title': title,
         'links_menu': links_menu,
-        'title': 'Подукты'
+        'same_products': same_products,
+        'hot_product': hot_product,
+        'basket': get_basket(request.user)
     }
     return render(request, 'mainapp/products.html', context=context)
 
 
-def products_home(request):
+def product(request, pk):
+    links_menu = ProductCategory.objects.all()
     context = {
-        'links_menu': links_menu,
-        'title': 'Подукты для Дома'
+        'product': get_object_or_404(Product, pk=pk),
+        'basket': get_basket(request.user),
+        'links_menu': links_menu
     }
-    return render(request, 'mainapp/products.html', context=context)
-
-
-def products_office(request):
-    context = {
-        'links_menu': links_menu,
-        'title': 'Подукты для Офиса'
-    }
-    return render(request, 'mainapp/products.html', context=context)
-
-
-def products_modern(request):
-    context = {
-        'links_menu': links_menu,
-        'title': 'Подукты Модерн'
-    }
-    return render(request, 'mainapp/products.html', context=context)
-
-
-def products_classic(request):
-    context = {
-        'links_menu': links_menu,
-        'title': 'Подукты Классика'
-    }
-    return render(request, 'mainapp/products.html', context=context)
->>>>>>> 90ae9ea75642a8fad139b0e4e04c3ac457a35197
+    return render(request, 'mainapp/product.html', context)
