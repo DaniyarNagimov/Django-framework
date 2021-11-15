@@ -8,10 +8,14 @@ urlpatterns = [
     path('category/<int:pk>/', mainapp.products, name='category'),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     path('product/<int:pk>/', mainapp.product, name='product')
 =======
 >>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
 =======
     path('product/<int:pk>/', mainapp.product, name='product')
 >>>>>>> Lesson_6
+=======
+    path('product/<int:pk>/', mainapp.product, name='product')
+>>>>>>> Lesson_7
 ]

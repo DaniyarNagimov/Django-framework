@@ -8,6 +8,7 @@ urlpatterns = [
     path('add/<int:pk>/', basket.add, name='add'),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     path('remove/<int:pk>/', basket.remove, name='remove'),
     path('edit/<int:pk>/<int:quantity>/', basket.edit, name='edit'),
 =======
@@ -17,4 +18,8 @@ urlpatterns = [
     path('remove/<int:pk>/', basket.remove, name='remove'),
     path('edit/<int:pk>/<int:quantity>/', basket.edit, name='edit'),
 >>>>>>> Lesson_6
+=======
+    path('remove/<int:pk>/', basket.remove, name='remove'),
+    path('edit/<int:pk>/<int:quantity>/', basket.edit, name='edit'),
+>>>>>>> Lesson_7
 ]

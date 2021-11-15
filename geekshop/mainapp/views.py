@@ -6,8 +6,11 @@ from django.shortcuts import get_object_or_404
 from basketapp.models import Basket
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7
 
 
 def get_basket(user):
@@ -23,10 +26,13 @@ def get_hot_product():
 def get_same_product(hot_product):
     return Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk)[:3]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
 =======
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7
 
 
 def index(request):
@@ -51,6 +57,9 @@ def products(request, pk=None):
     title = 'продукты'
     links_menu = ProductCategory.objects.all()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Lesson_7
 
     if pk is not None:
         if pk == 0:
@@ -61,6 +70,7 @@ def products(request, pk=None):
         else:
             category_item = get_object_or_404(ProductCategory, pk=pk)
             products_list = Product.objects.filter(category__pk=pk).order_by('price')
+<<<<<<< HEAD
 
         context = {
             'links_menu': links_menu,
@@ -89,8 +99,23 @@ def products(request, pk=None):
     }
 
     return render(request, 'mainapp/products.html', context=context)
+=======
 
+        context = {
+            'links_menu': links_menu,
+            'title': title,
+            'category': category_item,
+            'products': products_list,
+            'basket': get_basket(request.user)
+        }
 
+        return render(request, 'mainapp/products_list.html', context=context)
+>>>>>>> Lesson_7
+
+    hot_product = get_hot_product()
+    same_products = get_same_product(hot_product)
+
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -117,6 +142,8 @@ def products(request, pk=None):
     hot_product = get_hot_product()
     same_products = get_same_product(hot_product)
 
+=======
+>>>>>>> Lesson_7
     context = {
         'title': title,
         'links_menu': links_menu,
@@ -127,7 +154,10 @@ def products(request, pk=None):
     return render(request, 'mainapp/products.html', context=context)
 
 
+<<<<<<< HEAD
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7
 def product(request, pk):
     links_menu = ProductCategory.objects.all()
     context = {
@@ -137,6 +167,7 @@ def product(request, pk):
     }
     return render(request, 'mainapp/product.html', context)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 def get_basket(user):
     if user.is_authenticated:
@@ -145,3 +176,5 @@ def get_basket(user):
 >>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
 =======
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7

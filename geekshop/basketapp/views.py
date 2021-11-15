@@ -4,8 +4,11 @@ from mainapp.models import Product
 from basketapp.models import Basket
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.http import JsonResponse
@@ -23,6 +26,7 @@ def basket(request):
 
 @login_required
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -33,6 +37,8 @@ def basket(request):
 >>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
 =======
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7
 def add(request, pk):
     product_item = get_object_or_404(Product, pk=pk)
 
@@ -49,8 +55,11 @@ def add(request, pk):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7
 @login_required
 def remove(request, pk):
     basket_item = get_object_or_404(Basket, pk=pk)
@@ -80,9 +89,12 @@ def edit(request, pk, quantity):
 
         return JsonResponse({'result': result})
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 def remove(request, pk):
     pass
 >>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
 =======
 >>>>>>> Lesson_6
+=======
+>>>>>>> Lesson_7
