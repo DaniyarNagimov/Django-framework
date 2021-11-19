@@ -15,14 +15,11 @@
                 контакты
         </a>
     </li>
-<<<<<<< HEAD
-=======
     {% if user.is_superuser %}
         <li>
             <a href="{% url 'adminapp:user_list' %}">админка</a>
         </li>
     {% endif %}
->>>>>>> Lesson_7
     {% if user.is_authenticated %}
         <li>
             <a href="{% url 'auth:edit' %}">
@@ -44,4 +41,8 @@
     {% endif %}
 </ul>
 <a href="#" class="search"></a>
-<a href="{% url 'basket:basket' %}" class="basket">{{ basket.count }}</a>
+<a href="{% url 'basket:basket' %}" class="basket">
+    {% if basket %}
+        {{ basket.0.total_quantity }} шт
+    {% endif %}
+</a>

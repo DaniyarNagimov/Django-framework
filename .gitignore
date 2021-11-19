@@ -2,6 +2,8 @@ env/
 env1/
 venv/
 .env
+.env.sample
 .idea/
 .vscode/
 __pycache__/
+tmp/

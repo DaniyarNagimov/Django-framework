@@ -18,29 +18,26 @@
                     Категория: "{{ category.name|title }}"
                 </h2>
             </div>
+            <div class="paginator">
+                {% if products.has_previous %}
+                    <a href="{% url 'mainapp:category_page' category.pk products.previous_page_number %}">
+                        <<
+                    </a>
+                {% endif %}
+                <span class="current">
+                    страница {{ products.number }} из {{ products.paginator.num_pages }}
+                </span>
+                {% if products.has_next %}
+                    <a href="{% url 'mainapp:category_page' category.pk products.next_page_number %}">
+                        >>
+                    </a>
+                {% endif %}
+            </div>
             <div class="category-products clearfix">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Lesson_6
-=======
->>>>>>> Lesson_7
 
                 {% for product in products %}
                     <div class="block">
                         <a href="{% url 'mainapp:product' product.pk %}">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                {% for product in products %}
-                    <div class="block">
-                        <a href="{% url 'basket:add' product.pk %}">
->>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
-=======
->>>>>>> Lesson_6
-=======
->>>>>>> Lesson_7
                             <img src="/media/{{ product.image }}" alt="product">
                             <div class="text">
                                 <img src="{% static 'img/icon-hover.png' %}" alt="hover">

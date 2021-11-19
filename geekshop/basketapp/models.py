@@ -8,13 +8,6 @@ class Basket(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(default=0)
     add_datetime = models.DateTimeField(auto_now_add=True)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Lesson_6
-=======
->>>>>>> Lesson_7
 
     @property
     def product_cost(self):
@@ -28,14 +21,4 @@ class Basket(models.Model):
     @property
     def total_cost(self):
         _items = Basket.objects.filter(user=self.user)
-<<<<<<< HEAD
-<<<<<<< HEAD
         return sum(list(map(lambda x: x.product_cost, _items)))
-=======
->>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
-=======
-        return sum(list(map(lambda x: x.product_cost, _items)))
->>>>>>> Lesson_6
-=======
-        return sum(list(map(lambda x: x.product_cost, _items)))
->>>>>>> Lesson_7
