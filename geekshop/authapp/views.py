@@ -8,18 +8,7 @@ from django.urls import reverse
 
 def login(request):
     title = 'вход'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     next_param = request.GET.get('next', '')
-=======
->>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
-=======
-    next_param = request.GET.get('next', '')
->>>>>>> Lesson_6
-=======
-    next_param = request.GET.get('next', '')
->>>>>>> Lesson_7
 
     login_form = ShopUserLoginForm(data=request.POST)
     if request.method == 'POST' and login_form.is_valid():
@@ -29,41 +18,14 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user and user.is_active:
             auth.login(request, user)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             if 'next' in request.POST.keys():
                 return HttpResponseRedirect(request.POST['next'])
-=======
->>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
-=======
-            if 'next' in request.POST.keys():
-                return HttpResponseRedirect(request.POST['next'])
->>>>>>> Lesson_6
-=======
-            if 'next' in request.POST.keys():
-                return HttpResponseRedirect(request.POST['next'])
->>>>>>> Lesson_7
             return HttpResponseRedirect(reverse('main'))
 
     context = {
         'title': title,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         'login_form': login_form,
         'next': next_param
-=======
-        'login_form': login_form
->>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
-=======
-        'login_form': login_form,
-        'next': next_param
->>>>>>> Lesson_6
-=======
-        'login_form': login_form,
-        'next': next_param
->>>>>>> Lesson_7
     }
     return render(request, 'authapp/login.html', context)
 

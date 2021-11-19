@@ -41,10 +41,7 @@ INSTALLED_APPS = [
     'mainapp',
     'authapp',
     'basketapp',
-<<<<<<< HEAD
-=======
     'adminapp',
->>>>>>> Lesson_7
 ]
 
 MIDDLEWARE = [

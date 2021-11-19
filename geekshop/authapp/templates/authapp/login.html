@@ -6,24 +6,9 @@
         {% csrf_token %}
         {{ login_form.as_p }}
         <br>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         {% if next %}
             <input type="hidden" name="next" value="{{ next }}">
         {% endif %}
-=======
->>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
-=======
-        {% if next %}
-            <input type="hidden" name="next" value="{{ next }}">
-        {% endif %}
->>>>>>> Lesson_6
-=======
-        {% if next %}
-            <input type="hidden" name="next" value="{{ next }}">
-        {% endif %}
->>>>>>> Lesson_7
         <input class="form-control" type="submit" value="войти">
         <hr>
         <a href="{% url 'auth:register' %}">
