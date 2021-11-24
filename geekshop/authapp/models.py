@@ -9,6 +9,7 @@ class ShopUser(AbstractUser):
     avatar = models.ImageField(upload_to='users_avatars', blank=True)
     age = models.PositiveIntegerField(verbose_name='возраст')
     is_active = models.BooleanField(default=True)
+<<<<<<< HEAD
     activate_key = models.CharField(max_length=128, verbose_name='Ключ активации', blank=True, null=True)
     activate_key_expired = models.DateTimeField(blank=True, null=True)
 
@@ -22,3 +23,5 @@ class ShopUser(AbstractUser):
         self.activate_key = None
         self.active_key_expired = None
         self.save()
+=======
+>>>>>>> bd709e49b3c3cbad21a990c65101e6b3c0f3c791
