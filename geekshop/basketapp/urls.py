@@ -6,20 +6,6 @@ app_name = 'basketapp'
 urlpatterns = [
     path('', basket.basket, name='basket'),
     path('add/<int:pk>/', basket.add, name='add'),
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     path('remove/<int:pk>/', basket.remove, name='remove'),
     path('edit/<int:pk>/<int:quantity>/', basket.edit, name='edit'),
-=======
-    path('remove/<int:pk>/', basket.remove, name='remove')
->>>>>>> e972fac80de34039a4e3c2e81bf6c50c66cb1337
-=======
-    path('remove/<int:pk>/', basket.remove, name='remove'),
-    path('edit/<int:pk>/<int:quantity>/', basket.edit, name='edit'),
->>>>>>> Lesson_6
-=======
-    path('remove/<int:pk>/', basket.remove, name='remove'),
-    path('edit/<int:pk>/<int:quantity>/', basket.edit, name='edit'),
->>>>>>> Lesson_7
 ]
