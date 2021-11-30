@@ -22,12 +22,29 @@
     {% endif %}
     {% if user.is_authenticated %}
         <li>
-            <a href="{% url 'auth:edit' %}">
-                {{ user.first_name|default:'Пользователь' }}
-            </a>
-            <a href="{% url 'auth:logout' %}">
-                выйти
-            </a>
+           <div class="dropdown">
+                <a class="dropdown-toggle" href="" data-toggle="dropdown">
+                    {{ user.first_name|default:'Пользователь' }}
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{% url 'auth:edit' %}">
+                                профиль
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'order:list' %}">
+                                заказы
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'auth:logout' %}">
+                                выйти
+                            </a>
+                        </li>
+                    </ul>
+                </a>
+           </div>
         </li>
     {% else %}
         <li>

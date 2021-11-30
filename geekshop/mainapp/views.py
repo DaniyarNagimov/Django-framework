@@ -2,18 +2,7 @@ import random
 from django.shortcuts import render
 from mainapp.models import Product, ProductCategory
 from django.shortcuts import get_object_or_404
-<<<<<<< HEAD
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-=======
-from basketapp.models import Basket
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
-
-def get_basket(user):
-    if user.is_authenticated:
-        return sum(list(Basket.objects.filter(user=user).values_list('quantity', flat=True)))
-    return 0
->>>>>>> bd709e49b3c3cbad21a990c65101e6b3c0f3c791
 
 
 def get_hot_product():
@@ -66,12 +55,7 @@ def products(request, pk=None):
             'links_menu': links_menu,
             'title': title,
             'category': category_item,
-<<<<<<< HEAD
             'products': products_paginator
-=======
-            'products': products_paginator,
-            'basket': get_basket(request.user)
->>>>>>> bd709e49b3c3cbad21a990c65101e6b3c0f3c791
         }
 
         return render(request, 'mainapp/products_list.html', context=context)

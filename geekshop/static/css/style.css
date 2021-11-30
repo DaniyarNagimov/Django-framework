@@ -570,6 +570,9 @@ html, body {
 }
 
 .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #fff;
     border: 1px solid #eaeaea;
     border-radius: 25px;
@@ -577,9 +580,7 @@ html, body {
     width: 28em;
     min-width: 500px;
     margin: 100px auto;
-       
-    position: relative;
-    display: block;
+    padding: 20px;
 }
 
 .login .head {
@@ -613,9 +614,7 @@ html, body {
 }
 
 .login div.user_avatar {
-    position: fixed;
-    left: 175px;
-    top: 200px;
+    align-items: center;
 }
 
 .user_avatar img {
