@@ -22,11 +22,13 @@ from mainapp import views as mainapp
 
 urlpatterns = [
     path('', mainapp.index, name='main'),
+    path('', include('social_django.urls', namespace='social')),
     path('contact/', mainapp.contact, name='contact'),
     path('products/', include('mainapp.urls', namespace='products')),
     path('basket/', include('basketapp.urls', namespace='basket')),
     path('auth/', include('authapp.urls', namespace='auth')),
     path('admin/', include('adminapp.urls', namespace='adminapp')),
+    path('order/', include('ordersapp.urls', namespace='order')),
 
     path('control/', admin.site.urls),
 ]
