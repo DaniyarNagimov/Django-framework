@@ -8,10 +8,6 @@ from adminapp.forms import ShopUserAdminEditForm
 from authapp.forms import ShopUserRegisterForm
 from adminapp.forms import ProductEditForm
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
-<<<<<<< HEAD
-=======
-
->>>>>>> bd709e49b3c3cbad21a990c65101e6b3c0f3c791
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -46,10 +42,6 @@ class UserListView(ListView):
     @method_decorator(user_passes_test(lambda u: u.is_superuser))
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
-<<<<<<< HEAD
-=======
-
->>>>>>> bd709e49b3c3cbad21a990c65101e6b3c0f3c791
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -131,7 +123,6 @@ class ProductCreateView(CreateView):
         return reverse('adminapp:product_list', args=[self.kwargs['pk']])
 
 
-<<<<<<< HEAD
 # @user_passes_test(lambda u: u.is_superuser)
 # def products(request, pk):
 #     context = {
@@ -152,40 +143,6 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         return Product.objects.filter(category__pk=self.kwargs.get('pk'))
-=======
-
-
-# @user_passes_test(lambda u: u.is_superuser)
-# def products(request, pk):
-#     context = {
-#         'category': get_object_or_404(ProductCategory, pk=pk),
-#         'object_list': Product.objects.filter(category__pk=pk).order_by('-is_active')
-#     }
-#     return render(request, 'adminapp/products.html', context)
-
-
-class ProductListView(ListView):
-    model = Product
-    template_name = 'adminapp/products.html'
->>>>>>> bd709e49b3c3cbad21a990c65101e6b3c0f3c791
-
-    def get_context_data(self, *args, **kwargs):
-        context_data = super().get_context_data(*args, **kwargs)
-        context_data['category'] = get_object_or_404(ProductCategory, pk=self.kwargs.get('pk'))
-        return context_data
-
-<<<<<<< HEAD
-# @user_passes_test(lambda u: u.is_superuser)
-# def product_update(request, pk):
-#     context = {
-#
-#     }
-#     return render(request, '', context)
-
-=======
-
-    def get_queryset(self):
-        return Product.objects.filter(category__pk=self.kwargs.get('pk'))
 
 
 # @user_passes_test(lambda u: u.is_superuser)
@@ -195,7 +152,6 @@ class ProductListView(ListView):
 #     }
 #     return render(request, '', context)
 
->>>>>>> bd709e49b3c3cbad21a990c65101e6b3c0f3c791
 
 class ProductUpdateView(UpdateView):
     model = Product
