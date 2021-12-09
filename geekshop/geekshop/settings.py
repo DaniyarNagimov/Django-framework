@@ -98,7 +98,6 @@ DATABASES = {
             'NAME': 'geekshop',
             'ENGINE': 'django.db.backends.postgresql',
             'USER': 'postgres',
-            'HOST': 'localhost'
         }
 }
 
